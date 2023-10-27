@@ -72,8 +72,7 @@ public class TickImprover extends Plugin
 				try
 				{
 					InetAddress address = InetAddress.getByName(ipAddress);
-					boolean reachable = address.isReachable(100); // Adjust the timeout as needed
-					log.info("Ping sent!");
+					boolean reachable = address.isReachable(100);
 				}
 				catch (IOException e)
 				{
