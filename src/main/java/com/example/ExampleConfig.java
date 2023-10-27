@@ -4,16 +4,16 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("example")
+@ConfigGroup("tickimprover")
 public interface ExampleConfig extends Config
 {
 	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
+			keyName = "pingEnabled",
+			name = "Enable Ping",
+			description = "Enable or disable the ping feature"
 	)
-	default String greeting()
+	default boolean pingEnabled()
 	{
-		return "Hello";
+		return true; // Default to disabled
 	}
 }
