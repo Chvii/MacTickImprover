@@ -1,11 +1,11 @@
-package com.example;
+package com.tickimprover;
 
 import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
 @ConfigGroup("tickimprover")
-public interface ExampleConfig extends Config
+public interface TickImproverConfig extends Config
 {
 	@ConfigItem(
 			keyName = "pingEnabled",
@@ -14,6 +14,6 @@ public interface ExampleConfig extends Config
 	)
 	default boolean pingEnabled()
 	{
-		return true; // Default to disabled
+		return true;
 	}
 }

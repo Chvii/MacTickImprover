@@ -1,4 +1,4 @@
-package com.example;
+package com.tickimprover;
 
 import com.google.inject.Provides;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class TickImprover extends Plugin
 	private Client client;
 
 	@Inject
-	private ExampleConfig config;
+	private TickImproverConfig config;
 
 	private ScheduledExecutorService executorService;
 
@@ -37,7 +37,6 @@ public class TickImprover extends Plugin
 	@Override
 	protected void startUp() throws Exception
 	{
-		startPinging();
 		log.info("Tick Improver started!");
 	}
 
@@ -59,9 +58,9 @@ public class TickImprover extends Plugin
 
 
 	@Provides
-	ExampleConfig provideConfig(ConfigManager configManager)
+	TickImproverConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(ExampleConfig.class);
+		return configManager.getConfig(TickImproverConfig.class);
 	}
 
 	public void startPinging()
@@ -74,6 +73,7 @@ public class TickImprover extends Plugin
 				{
 					InetAddress address = InetAddress.getByName(ipAddress);
 					boolean reachable = address.isReachable(100); // Adjust the timeout as needed
+					log.info("Ping sent!");
 				}
 				catch (IOException e)
 				{
