@@ -4,16 +4,15 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("tickimprover")
+@ConfigGroup("tick improver")
 public interface TickImproverConfig extends Config
 {
 	@ConfigItem(
-			keyName = "pingEnabled",
-			name = "Enable Ping",
-			description = "Enable or disable the ping feature"
+			keyName = "gateway",
+			name = "Set Gateway",
+			description = "Set the gateway currently being used (most commonly 192.168.1.1"
 	)
-	default boolean pingEnabled()
-	{
-		return true;
+	default String gateway(){
+		return "192.168.1.1";
 	}
 }

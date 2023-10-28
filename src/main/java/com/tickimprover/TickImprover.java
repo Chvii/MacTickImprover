@@ -31,7 +31,7 @@ public class TickImprover extends Plugin
 
 	private ScheduledExecutorService executorService;
 
-	private String ipAddress = "192.168.1.1";
+
 	private int pingInterval = 100;
 
 	@Override
@@ -71,12 +71,12 @@ public class TickImprover extends Plugin
 			executorService.scheduleAtFixedRate(() -> {
 				try
 				{
-					InetAddress address = InetAddress.getByName(ipAddress);
+					InetAddress address = InetAddress.getByName(config.gateway());
 					boolean reachable = address.isReachable(100);
 				}
 				catch (IOException e)
 				{
-					log.error("Ping error to " + ipAddress + ": " + e.getMessage(), e);
+					log.error("Ping error to " + config.gateway() + ": " + e.getMessage(), e);
 				}
 			}, 0, pingInterval, TimeUnit.MILLISECONDS);
 		}
